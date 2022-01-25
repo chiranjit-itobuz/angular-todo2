@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="mt-5 pt-5">
+        <h2 class="my-5 text-center">Todo Edit</h2>
+        <form style="width: 500px; margin: 0 auto;" class="border border-warning p-5 mb-5" [formGroup]="editForm" (ngSubmit)="postEditForm()">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Name</label>
+                <input type="text" class="form-control" formControlName="name">
+                <span class="text-danger d-block mt-1" *ngIf="name && name.invalid && name.touched && !name.dirty">This field is required</span>
+                <span class="text-danger d-block mt-1" *ngIf="name && name.touched && name.invalid && name.dirty">It's not valid</span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">User Name</label>
+                <input type="text" class="form-control" formControlName="userName">
+                <span class="text-danger d-block mt-1" *ngIf="userName && userName.invalid && userName.touched && !userName.dirty">This field is required</span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" formControlName="email">
+                <span class="text-danger mt-1" *ngIf="email && email.invalid && email.touched && !email.dirty">This field is required</span>
+                <span class="text-danger d-block mt-1" *ngIf="email && email.touched && email.invalid && email.dirty">It's not valid</span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Phone</label>
+                <input type="text" class="form-control" formControlName="phone">
+                <span class="text-danger mt-1" *ngIf="phone && phone.invalid && phone.touched && !phone.dirty">This field is required</span>
+                <span class="text-danger d-block mt-1" *ngIf="phone && phone.touched && phone.invalid && phone.dirty">It's not valid</span>
+            </div>
+            <div class="mb-5">
+                <label class="form-label">Website</label>
+                <input type="url" class="form-control" formControlName="website">
+                <span class="text-danger d-block mt-1" *ngIf="website && website.invalid && website.touched">This field is required</span>
+            </div>
+            <button class="btn btn-warning" [disabled]="editForm.invalid">Save Data</button>
+        </form>
+    </div>
+</div>
