@@ -1,16 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 
-import { HeaderInterceptor } from './header.interceptor';
+import { TodoInterceptor } from './todo.interceptor';
 
-describe('HeaderInterceptor', () => {
+describe('TodoInterceptor', () => {
   beforeEach(() => TestBed.configureTestingModule({
     providers: [
-      HeaderInterceptor
+      TodoInterceptor
       ]
   }));
 
   it('should be created', () => {
-    const interceptor: HeaderInterceptor = TestBed.inject(HeaderInterceptor);
+    const interceptor: TodoInterceptor = TestBed.inject(TodoInterceptor);
     expect(interceptor).toBeTruthy();
   });
 });

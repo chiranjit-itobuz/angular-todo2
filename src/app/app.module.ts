@@ -5,8 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { HeaderInterceptor } from './header.interceptor';
-import { LoginInterceptor } from './login.interceptor';
+import { TodoInterceptor } from './todo.interceptor';
 
 @NgModule({
   declarations: [
@@ -18,9 +17,8 @@ import { LoginInterceptor } from './login.interceptor';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: LoginInterceptor, multi: true}
+  providers:[
+    {provide: HTTP_INTERCEPTORS, useClass: TodoInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })

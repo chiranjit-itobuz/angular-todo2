@@ -1,131 +1,35 @@
 <div class="container">
     <div class="mt-5 pt-5 mb-5">
         <h2 class="my-5 text-center">Todo List</h2>
+        <a class="btn btn-dark mt-3 mb-4" routerLink="/todo/add">Add Todo</a>
         <table class="table table-bordered">
             <thead>
             <tr>
+                <th scope="col">Sl no</th>
                 <th scope="col">Id</th>
                 <th scope="col">Name</th>
-                <th scope="col">User Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Phone</th>
-                <th scope="col">Website</th>
+                <th scope="col">Address</th>
+                <th scope="col">Status</th>
                 <th scope="col">Action 1</th>
                 <th scope="col">Action 2</th>
                 <th scope="col">Action 3</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Leanne Graham</td>
-                <td>Bret</td>
-                <td>Sincere@april.biz</td>
-                <td>1-770-736-8031</td>
-                <td>hildegard.org</td>
-                <td><a routerLink="/todo/view" class="btn btn-warning">View</a></td>
-                <td><a routerLink="/todo/edit" class="btn btn-info">Edit</a></td>
-                <td><button class="btn btn-danger">Delete</button></td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Ervin Howell</td>
-                <td>Antonette</td>
-                <td>Shanna@melissa.tv</td>
-                <td>010-692-6593</td>
-                <td>anastasia.net</td>
-                <td><a routerLink="/todo/view" class="btn btn-warning">View</a></td>
-                <td><a routerLink="/todo/edit" class="btn btn-info">Edit</a></td>
-                <td><button class="btn btn-danger">Delete</button></td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Clementine Bauch</td>
-                <td>Samantha</td>
-                <td>Nathan@yesenia.net</td>
-                <td>1-463-123-4447</td>
-                <td>ramiro.info</td>
-                <td><a routerLink="/todo/view" class="btn btn-warning">View</a></td>
-                <td><a routerLink="/todo/edit" class="btn btn-info">Edit</a></td>
-                <td><button class="btn btn-danger">Delete</button></td>
-            </tr>
-            <tr>
-                <th scope="row">4</th>
-                <td>Patricia Lebsack</td>
-                <td>Karianne</td>
-                <td>Julianne.OConner@kory.org</td>
-                <td>493-170-9623</td>
-                <td>kale.biz</td>
-                <td><a routerLink="/todo/view" class="btn btn-warning">View</a></td>
-                <td><a routerLink="/todo/edit" class="btn btn-info">Edit</a></td>
-                <td><button class="btn btn-danger">Delete</button></td>
-            </tr>
-            <tr>
-                <th scope="row">5</th>
-                <td>Chelsey Dietrich</td>
-                <td>Kamren</td>
-                <td>Lucio_Hettinger@annie.ca</td>
-                <td>(254)954-1289</td>
-                <td>demarco.info</td>
-                <td><a routerLink="/todo/view" class="btn btn-warning">View</a></td>
-                <td><a routerLink="/todo/edit" class="btn btn-info">Edit</a></td>
-                <td><button class="btn btn-danger">Delete</button></td>
-            </tr>
-            <tr>
-                <th scope="row">6</th>
-                <td>Mrs. Dennis Schulist</td>
-                <td>Leopoldo_Corkery</td>
-                <td>Karley_Dach@jasper.info</td>
-                <td>1-477-935-8478</td>
-                <td>ola.org</td>
-                <td><a routerLink="/todo/view" class="btn btn-warning">View</a></td>
-                <td><a routerLink="/todo/edit" class="btn btn-info">Edit</a></td>
-                <td><button class="btn btn-danger">Delete</button></td>
-            </tr>
-            <tr>
-                <th scope="row">7</th>
-                <td>Kurtis Weissnat</td>
-                <td>Elwyn.Skiles</td>
-                <td>Telly.Hoeger@billy.biz</td>
-                <td>210.067.6132</td>
-                <td>elvis.io</td>
-                <td><a routerLink="/todo/view" class="btn btn-warning">View</a></td>
-                <td><a routerLink="/todo/edit" class="btn btn-info">Edit</a></td>
-                <td><button class="btn btn-danger">Delete</button></td>
-            </tr>
-            <tr>
-                <th scope="row">8</th>
-                <td>Nicholas Runolfsdottir V</td>
-                <td>Maxime_Nienow</td>
-                <td>Sherwood@rosamond.me</td>
-                <td>586.493.6943</td>
-                <td>jacynthe.com</td>
-                <td><a routerLink="/todo/view" class="btn btn-warning">View</a></td>
-                <td><a routerLink="/todo/edit" class="btn btn-info">Edit</a></td>
-                <td><button class="btn btn-danger">Delete</button></td>
-            </tr>
-            <tr>
-                <th scope="row">9</th>
-                <td>Glenna Reichert</td>
-                <td>Delphine</td>
-                <td>Chaim_McDermott@dana.io</td>
-                <td>(775)976-6794</td>
-                <td>conrad.com</td>
-                <td><a routerLink="/todo/view" class="btn btn-warning">View</a></td>
-                <td><a routerLink="/todo/edit" class="btn btn-info">Edit</a></td>
-                <td><button class="btn btn-danger">Delete</button></td>
-            </tr>
-            <tr>
-                <th scope="row">10</th>
-                <td>Clementina DuBuque</td>
-                <td>Moriah.Stanton</td>
-                <td>Rey.Padberg@karina.biz</td>
-                <td>024-648-3804</td>
-                <td>ambrose.net</td>
-                <td><a routerLink="/todo/view" class="btn btn-warning">View</a></td>
-                <td><a routerLink="/todo/edit" class="btn btn-info">Edit</a></td>
-                <td><button class="btn btn-danger">Delete</button></td>
-            </tr>
+                <tr *ngFor="let listData of getTodoData; let i = index">
+                    <th>{{ i + 1 }}</th>
+                    <td>{{ listData.objectId }}</td>
+                    <td>{{ listData.name }}</td>
+                    <td>{{ listData.email }}</td>
+                    <td>{{ listData.phone }}</td>
+                    <td>{{ listData.data }}</td>
+                    <td>{{ listData.completed }}</td>
+                    <td><a [routerLink]="['/todo/view', listData.objectId]" class="btn btn-warning">View</a></td>
+                    <td><a [routerLink]="['/todo/edit', listData.objectId]" class="btn btn-info">Edit</a></td>
+                    <td><button (click)="deleteItem(listData.objectId)" class="btn btn-danger">Delete</button></td>
+                </tr>
             </tbody>
         </table>
     </div>

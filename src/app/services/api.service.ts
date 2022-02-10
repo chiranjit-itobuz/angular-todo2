@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment';
+import { map, Observable } from 'rxjs';
+import { Todo } from '../interface/todo.interface';
 @Injectable({
   providedIn: 'root'
 })
@@ -8,12 +9,35 @@ export class ApiService {
 
   constructor(private http:HttpClient ) { }
 
-  getItemList(){
-    const url = `/todo`;
-    // const httpHeaders = new HttpHeaders({
-    //   'X-Parse-Application-Id' : `${environment.appId}`,
-    //   'X-Parse-REST-API-Key' : `${environment.apiKey}`
-    // });
-    return this.http.get(url);
+  // getTodoItemList(){
+  //   return this.http.get('/classes/todo');
+  // }
+
+  getTodoItemList(): Observable<Todo>{
+    return this.http.get('/classes/todo').pipe(map(
+      ((data: any) => {
+        return data
+      })
+    ))
+  }
+
+  getTodoItem(id:string ): Observable<Todo> {
+    return this.http.get('/classes/todo/'+id).pipe(map(
+      ((response: any) => {
+        return response;
+      })
+    ))
+  }
+
+  postTodoItem(postData:any){
+    return this.http.post('/classes/todo', postData);
+  }
+
+  putTodoItem(id:string, putData:any) {
+    return this.http.put('/classes/todo/'+id, putData)
+  }
+
+  deleteTodoItem(id:string){
+    return this.http.delete('/classes/todo/'+id);
   }
 }

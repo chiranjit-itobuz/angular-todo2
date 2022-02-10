@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-add',
@@ -7,29 +8,35 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./add.component.scss']
 })
 export class AddComponent implements OnInit {
-
+  submitted:boolean = false;
   addForm = new FormGroup({
-    name: new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z]+$')]),
-    userName: new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z]+$')]),
+    name: new FormControl('',[Validators.required]),
+    title: new FormControl('',[Validators.required]),
     email: new FormControl('',[Validators.required, Validators.email]),
     phone: new FormControl('',[Validators.required, Validators.minLength(10), Validators.pattern('[0-9]+$')]),
-    website: new FormControl('',[Validators.required])
-  })
+    completed: new FormControl('', [Validators.required]),
+    data: new FormControl('',[Validators.required]),
+  },{updateOn:'submit'})
 
-  constructor() { }
+  constructor(private api:ApiService) { }
 
   ngOnInit(): void {
   }
 
-  postAddForm(){
-    console.log(this.addForm.value);
+  postAddForm(postData:any){
+    this.submitted = true;
+    if(this.addForm.valid){
+      // console.log("Post Value", postData);
+     this.api.postTodoItem(postData).subscribe();
+     alert("Todo Successfully Added");
+    }
   }
 
   get name(){
     return this.addForm.get('name');
   }
-  get userName(){
-    return this.addForm.get('userName');
+  get title(){
+    return this.addForm.get('title');
   }
   get email(){
     return this.addForm.get('email');
@@ -37,8 +44,11 @@ export class AddComponent implements OnInit {
   get phone(){
     return this.addForm.get('phone');
   }
-  get website(){
-    return this.addForm.get('website');
+  get completed(){
+    return this.addForm.get('completed');
+  }
+  get data () {
+    return this.addForm.get('data');
   }
 
 }

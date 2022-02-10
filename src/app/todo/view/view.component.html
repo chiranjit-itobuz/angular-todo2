@@ -1,12 +1,19 @@
 <div class="pt-5" style="width: 700px; margin: 5rem auto;">
     <h2 class="my-5 text-center">Todo View</h2>
-    <div class="card">
+    <div *ngIf="viewTodoItem" class="card">
         <div class="card-header">
-            Single Item View
+            <b>{{ viewTodoItem.name }}'s Details</b>
         </div>
         <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <p class="card-text"><b>Name:</b> {{ viewTodoItem.name }}</p>
+            <p class="card-text"><b>Email:</b> {{ viewTodoItem.email }}</p>
+            <p class="card-text"><b>Phone:</b> {{ viewTodoItem.phone }}</p>
+            <p class="card-text"><b>Address:</b> {{ viewTodoItem.data }}</p>
+            <p class="card-text"><b>User Id:</b> {{ viewTodoItem.title }}</p>
+            <p class="card-text"><b>ID:</b> {{ viewTodoItem.objectId }}</p>
+            <p class="card-text"><b>Status:</b> {{ viewTodoItem.completed }}</p>
+            <p class="card-text"><b>Create:</b> {{ viewTodoItem.createdAt | date:'medium' }}</p>
+            <p class="card-text"><b>Updated:</b> {{ viewTodoItem.updatedAt | date:'medium' }}</p>
             <a routerLink="/todo/list" class="btn btn-primary">Back to list</a>
         </div>
     </div>

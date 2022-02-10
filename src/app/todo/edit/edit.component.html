@@ -5,32 +5,44 @@
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Name</label>
                 <input type="text" class="form-control" formControlName="name">
-                <span class="text-danger d-block mt-1" *ngIf="name && name.invalid && name.touched && !name.dirty">This field is required</span>
-                <span class="text-danger d-block mt-1" *ngIf="name && name.touched && name.invalid && name.dirty">It's not valid</span>
+                <span class="text-danger d-block mt-1" *ngIf="submitted && name && name.invalid && !name.dirty">This field is required</span>
+                <span class="text-danger d-block mt-1" *ngIf="submitted && name && name.invalid && name.dirty">It's not valid</span>
             </div>
             <div class="mb-3">
                 <label class="form-label">User Name</label>
-                <input type="text" class="form-control" formControlName="userName">
-                <span class="text-danger d-block mt-1" *ngIf="userName && userName.invalid && userName.touched && !userName.dirty">This field is required</span>
+                <input type="text" class="form-control" formControlName="title">
+                <span class="text-danger d-block mt-1" *ngIf="submitted && title && title.invalid && !title.dirty">This field is required</span>
             </div>
             <div class="mb-3">
                 <label class="form-label">Email</label>
                 <input type="email" class="form-control" formControlName="email">
-                <span class="text-danger mt-1" *ngIf="email && email.invalid && email.touched && !email.dirty">This field is required</span>
-                <span class="text-danger d-block mt-1" *ngIf="email && email.touched && email.invalid && email.dirty">It's not valid</span>
+                <span class="text-danger mt-1" *ngIf="submitted && email && email.invalid && !email.dirty">This field is required</span>
+                <span class="text-danger d-block mt-1" *ngIf="submitted && email && email.invalid && email.dirty">It's not valid</span>
             </div>
             <div class="mb-3">
                 <label class="form-label">Phone</label>
                 <input type="text" class="form-control" formControlName="phone">
-                <span class="text-danger mt-1" *ngIf="phone && phone.invalid && phone.touched && !phone.dirty">This field is required</span>
-                <span class="text-danger d-block mt-1" *ngIf="phone && phone.touched && phone.invalid && phone.dirty">It's not valid</span>
+                <span class="text-danger mt-1" *ngIf="submitted && phone && phone.invalid && !phone.dirty">This field is required</span>
+                <span class="text-danger d-block mt-1" *ngIf="submitted && phone && phone.invalid && phone.dirty">It's not valid</span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Status</label>
+                <div class="switch-field">
+                    <input type="radio" id="radio-one" [value]="true" formControlName="completed"/>
+                    <label for="radio-one">True</label>
+                    <input type="radio" id="radio-two" [value]="false" formControlName="completed" />
+                    <label for="radio-two">False</label>
+                </div>
+                <span class="text-danger mt-1" *ngIf="submitted && completed && completed.invalid && !completed.dirty">This field is required</span>
             </div>
             <div class="mb-5">
-                <label class="form-label">Website</label>
-                <input type="url" class="form-control" formControlName="website">
-                <span class="text-danger d-block mt-1" *ngIf="website && website.invalid && website.touched">This field is required</span>
+                <label class="form-label">Address</label>
+                <input type="url" class="form-control" formControlName="data">
+                <span class="text-danger d-block mt-1" *ngIf="submitted && data && data.invalid">This field is required</span>
             </div>
-            <button class="btn btn-warning" [disabled]="editForm.invalid">Save Data</button>
+            <a class="btn btn-dark mr-1" routerLink="/todo/list">Back to list</a>
+            <!-- <button class="btn btn-warning" [disabled]="editForm.invalid">Save Data</button> -->
+            <button class="btn btn-warning">Save Data</button>
         </form>
     </div>
 </div>

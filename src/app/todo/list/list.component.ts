@@ -6,14 +6,28 @@ import { ApiService } from '../../services/api.service';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-
+  getTodoData:any;
   constructor(private api:ApiService) { 
-    this.api.getItemList().subscribe(data =>{
-      console.log(data);
-    })
+    
   }
 
+
   ngOnInit(): void {
+    this.api.getTodoItemList().subscribe(data =>{
+      this.getTodoData = data.results;
+      console.log("Test", data.results);
+    },
+    err => console.log(err),
+    // ()=>console.log("Ready Todo")
+    )
+  }
+
+  deleteItem(id:string) {
+    this.api.deleteTodoItem(id).subscribe(()=> {
+      console.log('Current Id =>', id);
+      this.ngOnInit();
+    });
+    
   }
 
 }

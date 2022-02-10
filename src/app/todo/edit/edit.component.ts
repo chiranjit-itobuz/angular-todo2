@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-edit',
@@ -7,27 +9,50 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./edit.component.scss']
 })
 export class EditComponent implements OnInit {
-
+  submitted:boolean = false;
   editForm = new FormGroup({
-    name: new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z]+$')]),
-    userName: new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z]+$')]),
+    name: new FormControl('',[Validators.required]),
+    title: new FormControl('',[Validators.required]),
     email: new FormControl('',[Validators.required, Validators.email]),
     phone: new FormControl('',[Validators.required, Validators.minLength(10), Validators.pattern('[0-9]+$')]),
-    website: new FormControl('',[Validators.required])
-  })
-  constructor() { }
+    completed: new FormControl('', [Validators.required]),
+    data: new FormControl('',[Validators.required]),
+  },{updateOn:'submit'})
+
+
+  constructor(private api:ApiService, private router:ActivatedRoute) { }
 
   ngOnInit(): void {
+    // console.log("Params Data", this.router.snapshot.params['id']);
+    const id = this.router.snapshot.params['id'];
+    this.api.getTodoItem(id).subscribe(data =>{
+      console.log("Single Data", data);
+      this.editForm.patchValue({
+        name: data.name,
+        title: data.title,
+        email: data.email,
+        phone: data.phone,
+        completed: data.completed,
+        data: data.data
+      });
+    })
   }
+
+
   postEditForm(){
-    console.log(this.editForm.value);
+    this.submitted = true;
+    const id = this.router.snapshot.params['id'];
+    if(this.editForm.valid) {
+      console.log(this.editForm.value);
+      this.api.putTodoItem(id, this.editForm.value).subscribe();
+    }
   }
 
   get name(){
     return this.editForm.get('name');
   }
-  get userName(){
-    return this.editForm.get('userName');
+  get title(){
+    return this.editForm.get('title');
   }
   get email(){
     return this.editForm.get('email');
@@ -35,8 +60,11 @@ export class EditComponent implements OnInit {
   get phone(){
     return this.editForm.get('phone');
   }
-  get website(){
-    return this.editForm.get('website');
+  get completed(){
+    return this.editForm.get('completed');
+  }
+  get data(){
+    return this.editForm.get('data');
   }
 
 }
