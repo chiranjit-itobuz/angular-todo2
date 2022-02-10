@@ -22,12 +22,9 @@ export class ListComponent implements OnInit {
     )
   }
 
-  deleteItem(id:string) {
-    this.api.deleteTodoItem(id).subscribe(()=> {
-      console.log('Current Id =>', id);
-      this.ngOnInit();
-    });
-    
+  deleteItem(index:number, id:string) {
+    this.api.deleteTodoItem(id).subscribe();
+    this.getTodoData.splice(index, 1);
   }
 
 }

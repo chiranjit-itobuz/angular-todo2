@@ -28,7 +28,7 @@
                     <td>{{ listData.completed }}</td>
                     <td><a [routerLink]="['/todo/view', listData.objectId]" class="btn btn-warning">View</a></td>
                     <td><a [routerLink]="['/todo/edit', listData.objectId]" class="btn btn-info">Edit</a></td>
-                    <td><button (click)="deleteItem(listData.objectId)" class="btn btn-danger">Delete</button></td>
+                    <td><button (click)="deleteItem(i, listData.objectId)" class="btn btn-danger">Delete</button></td>
                 </tr>
             </tbody>
         </table>
