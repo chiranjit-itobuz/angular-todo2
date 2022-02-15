@@ -5,5 +5,8 @@ export interface Todo {
     phone: string,
     completed: boolean,
     data: string,
-    results: object
+    results: object,
+    sesessionToken: string,
+    
+    
 }

@@ -7,6 +7,8 @@ import { EditComponent } from './edit/edit.component';
 import { AddComponent } from './add/add.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ViewComponent } from './view/view.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 
 
@@ -15,7 +17,9 @@ import { ViewComponent } from './view/view.component';
     ListComponent,
     EditComponent,
     AddComponent,
-    ViewComponent
+    ViewComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     CommonModule,

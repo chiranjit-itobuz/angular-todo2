@@ -9,14 +9,21 @@
           <li class="nav-item">
             <a class="nav-link active fw-bold fs-5" aria-current="page" routerLink="/">Home</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="logedIn">
             <a class="nav-link fw-bold fs-5" routerLink="todo/list">Todo list</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="logedIn">
             <a class="nav-link fw-bold fs-5" routerLink="todo/add">Todo Add </a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link fw-bold fs-5" routerLink="todo/edit">Todo Edit </a>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link fw-bold fs-5" *ngIf="!logedIn" routerLink="todo/login">Login</a>
+            <button class="fw-bold fs-5 btn-warning" *ngIf="logedIn" routerLink="todo/login" (click)="logOut()">Logout</button>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-bold fs-5" *ngIf="!logedIn" routerLink="todo/signup">Signup</a>
           </li>
         </ul>
       </div>

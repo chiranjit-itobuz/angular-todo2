@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="mt-5 pt-5">
+        <h2 class="my-5 text-center">Login</h2>
+        <div *ngIf="errorText" class="alert alert-danger text-center">{{ errorText }}</div>
+        <form style="width: 500px; margin: 0 auto;" class="border border-warning p-5 mb-5" [formGroup]="loginForm" (ngSubmit)="postLoginForm()">
+            <div class="mb-3">
+                <label class="form-label">User Name</label>
+                <input type="text" class="form-control" formControlName="username">
+                <span class="text-danger d-block mt-1" *ngIf="submitted && username && username.invalid && !username.dirty">This field is required</span>
+                <span class="text-danger d-block mt-1" *ngIf="submitted && username && username.invalid && username.dirty">It's not valid</span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="email" class="form-control" formControlName="password">
+                <span class="text-danger d-block mt-1" *ngIf="submitted && password && password.invalid && !password.dirty">This field is required</span>
+                <span class="text-danger d-block mt-1" *ngIf="submitted && password && password.invalid && password.dirty">Enter at least 8 character</span>
+            </div>
+            <button class="btn btn-warning">Login</button>
+            <span class="d-block mt-3">New to todo? <a routerLink="/todo/signup">Create an account</a>.</span>
+        </form>
+    </div>
+</div>

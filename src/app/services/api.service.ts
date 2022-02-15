@@ -40,4 +40,21 @@ export class ApiService {
   deleteTodoItem(id:string){
     return this.http.delete('/classes/todo/'+id);
   }
+
+  postSignUp(postData:any){
+    return this.http.post('/users', postData).pipe(map(
+      ((response: any) => {
+        return response;
+      })
+    ))
+  }
+
+  postLogin(postData:any) {
+    return this.http.post('/login', postData).pipe(map(
+      ((response: any) => {
+        return response;
+      })
+    ))
+  }
+  
 }
