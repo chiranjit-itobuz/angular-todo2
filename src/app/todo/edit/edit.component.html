@@ -1,6 +1,8 @@
+<app-message *ngIf="successMessage && showMessage" [message]="successMessage"></app-message>
 <div class="container">
     <div class="mt-5 pt-5">
         <h2 class="my-5 text-center">Todo Edit</h2>
+        <div *ngIf="errorMessage" class="alert text-center" [ngClass]="errorMessage == 'API works fine'? 'alert-success' : 'alert-danger'">{{ errorMessage }}</div>
         <form style="width: 500px; margin: 0 auto;" class="border border-warning p-5 mb-5" [formGroup]="editForm" (ngSubmit)="postEditForm()">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Name</label>
@@ -21,7 +23,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Phone</label>
-                <input type="text" class="form-control" formControlName="phone">
+                <input type="number" class="form-control" formControlName="phone">
                 <span class="text-danger mt-1" *ngIf="submitted && phone && phone.invalid && !phone.dirty">This field is required</span>
                 <span class="text-danger d-block mt-1" *ngIf="submitted && phone && phone.invalid && phone.dirty">It's not valid</span>
             </div>
@@ -37,11 +39,10 @@
             </div>
             <div class="mb-5">
                 <label class="form-label">Address</label>
-                <input type="url" class="form-control" formControlName="data">
+                <input type="text" class="form-control" formControlName="data">
                 <span class="text-danger d-block mt-1" *ngIf="submitted && data && data.invalid">This field is required</span>
             </div>
             <a class="btn btn-dark mr-1" routerLink="/todo/list">Back to list</a>
-            <!-- <button class="btn btn-warning" [disabled]="editForm.invalid">Save Data</button> -->
             <button class="btn btn-warning">Save Data</button>
         </form>
     </div>

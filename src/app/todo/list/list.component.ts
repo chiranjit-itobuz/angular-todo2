@@ -7,6 +7,7 @@ import { ApiService } from '../../services/api.service';
 })
 export class ListComponent implements OnInit {
   getTodoData:any;
+  errorMessage:any;
   constructor(private api:ApiService) { 
     
   }
@@ -17,8 +18,10 @@ export class ListComponent implements OnInit {
       this.getTodoData = data.results;
       console.log("Test", data.results);
     },
-    err => console.log(err),
-    // ()=>console.log("Ready Todo")
+    (err) => {
+      // console.log('list', err.error.message);
+      this.errorMessage = err.error.message;
+    }
     )
   }
 

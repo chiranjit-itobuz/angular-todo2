@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private api:ApiService, private router: Router) { }
   submitted:Boolean = false;
-  errorText:any;
+  errorText:string = '';
   loginForm = new FormGroup({
     username: new FormControl ('', [Validators.required]),
     password: new FormControl('', [Validators.required, Validators.minLength(8)])

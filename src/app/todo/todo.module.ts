@@ -9,6 +9,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ViewComponent } from './view/view.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { MessageComponent } from './message/message.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
 
@@ -19,7 +21,9 @@ import { SignupComponent } from './signup/signup.component';
     AddComponent,
     ViewComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    MessageComponent,
+    ResetPasswordComponent
   ],
   imports: [
     CommonModule,

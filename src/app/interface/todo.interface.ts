@@ -6,7 +6,8 @@ export interface Todo {
     completed: boolean,
     data: string,
     results: object,
-    sesessionToken: string,
-    
+    sessionToken: string,
+    errorMessage: string,
+    successMessage: string,
     
 }

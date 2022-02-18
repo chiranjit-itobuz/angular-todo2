@@ -20,7 +20,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Phone</label>
-                <input type="text" class="form-control" onKeyPress="if(this.value.length==10) return false;" formControlName="phone">
+                <input type="number" class="form-control" onKeyPress="if(this.value.length==10) return false;" formControlName="phone">
                 <span class="text-danger mt-1" *ngIf="submitted && phone && phone.invalid && !phone.dirty">This field is required</span>
                 <span class="text-danger d-block mt-1" *ngIf="submitted && phone && phone.invalid && phone.dirty">It's not valid</span>
             </div>

@@ -10,6 +10,9 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class EditComponent implements OnInit {
   submitted:boolean = false;
+  errorMessage:string = '';
+  successMessage:string = '';
+  showMessage:boolean = false;
   editForm = new FormGroup({
     name: new FormControl('',[Validators.required]),
     title: new FormControl('',[Validators.required]),
@@ -26,7 +29,7 @@ export class EditComponent implements OnInit {
     // console.log("Params Data", this.router.snapshot.params['id']);
     const id = this.router.snapshot.params['id'];
     this.api.getTodoItem(id).subscribe(data =>{
-      console.log("Single Data", data);
+      // console.log("Single Data", data);
       this.editForm.patchValue({
         name: data.name,
         title: data.title,
@@ -35,6 +38,11 @@ export class EditComponent implements OnInit {
         completed: data.completed,
         data: data.data
       });
+      // this.errorMessage = "API works fine";
+    }, 
+    (err) => {
+      // console.log('get edit', err.error.message);
+      this.errorMessage = err.error.message;
     })
   }
 
@@ -43,8 +51,19 @@ export class EditComponent implements OnInit {
     this.submitted = true;
     const id = this.router.snapshot.params['id'];
     if(this.editForm.valid) {
-      console.log(this.editForm.value);
-      this.api.putTodoItem(id, this.editForm.value).subscribe();
+      // console.log(this.editForm.value);
+      this.api.putTodoItem(id, this.editForm.value).subscribe( data => {
+        // console.log(data);
+        this.successMessage = 'Todo updated successfully';
+        this.showMessage = true;
+        setTimeout(() => {
+          this.showMessage = false;
+        }, 3000);
+      }, 
+      (err)=> {
+        // console.log('Update', err.error.message);
+        this.errorMessage = err.error.message;
+      });
     }
   }
 

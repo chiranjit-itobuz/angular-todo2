@@ -12,10 +12,12 @@ export class SignupComponent implements OnInit {
   constructor(private api:ApiService) { }
   submitted:boolean = false;
   errorText:any;
+  successMessage:string = '';
+  showMessage:Boolean = false;
   signupForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     username: new FormControl('', [Validators.required]),
-    password: new FormControl('',[Validators.required, Validators.minLength(8)])
+    password: new FormControl('', [Validators.required, Validators.minLength(8)])
   },{updateOn: 'submit'})
 
   ngOnInit(): void {
@@ -28,6 +30,11 @@ export class SignupComponent implements OnInit {
         console.log('Token', data);
         localStorage.setItem('token', data.sessionToken);
         localStorage.setItem('user', JSON.stringify(this.signupForm.value));
+        this.successMessage = 'User Successfully registerd';
+        this.showMessage = true;
+        setTimeout(() => {
+          this.showMessage = false;
+        }, 3000);
       }, 
       (err)=>{
         console.log('message', err);
